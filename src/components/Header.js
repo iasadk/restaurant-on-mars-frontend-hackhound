@@ -33,26 +33,14 @@ console.log(JSON.stringify())
             className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
           >
             Login
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              className="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
           </Link>
         )}
         {!isLoggedIn && (
           <Link
             to={"/signup"}
-            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded mx-5 text-white mt-4 md:mt-0"
           >
             Sign Up
-            <i class="ri-user-line"></i>
           </Link>
         )}
         {isLoggedIn && (

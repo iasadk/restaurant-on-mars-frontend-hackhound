@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Toaster } from "react-hot-toast";
+import util from "../config/util";
+import _ from "underscore"
+import service from "../service/user";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
+  const [data, setData] = useState({});
+  const navigate = useNavigate();
+  const handleChange = (value) => {
+    setData({ ...data, ...value });
+  };
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    if (_.isEmpty(data)){
+      util.failed("Please Fill the Form.");
+      return;
+    }
+    else{
+        if(data.password !== data.cPass){
+            util.failed("Password is not matching.");
+            return;
+        }
+        await service.saveUser(data)
+        .then(res => {
+            if(res.user_id){
+                util.success("Register Successfully.")
+                setTimeout(()=>{
+                    navigate("/login")
+                },2000)
+                
+            }
+        })
+        .catch(err => util.failed(err.error))
+
+    }
+  };
   return (
     <main className="h-[900px] overflow-hidden">
+      <Toaster />
       <section className="text-gray-800 body-font">
         <div className="container mx-auto h-screen">
           <div className="w-full flex flex-wrap">
@@ -21,7 +56,11 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="w-9/12  pb-12">
-                <form action="#" method="POST" className="font-PTSans">
+                <form
+                  method="POST"
+                  className="font-PTSans"
+                  onSubmit={(e) => handleSignup(e)}
+                >
                   <div className="w-full ">
                     <div className="py-5 ">
                       <div className="grid grid-cols-6 gap-6">
@@ -40,6 +79,9 @@ const SignUp = () => {
                             autoComplete="name"
                             className="mt-1 block w-full rounded-md border-[1px] font-md p-2 border-[#7E8488] shadow-sm focus:border-gray-700 focus:ring-gray-700 sm:text-sm outline-none"
                             placeholder="John"
+                            onChange={(e) =>
+                              handleChange({ name: e.target.value.trim() })
+                            }
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3">
@@ -57,6 +99,9 @@ const SignUp = () => {
                             autoComplete="email"
                             className="mt-1 block w-full rounded-md border-[1px] font-md p-2 border-[#7E8488] shadow-sm focus:border-gray-700 focus:ring-gray-700 sm:text-sm outline-none"
                             placeholder="john.doe@example.com"
+                            onChange={(e) =>
+                              handleChange({ email: e.target.value.trim() })
+                            }
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3">
@@ -74,11 +119,14 @@ const SignUp = () => {
                             autoComplete="email"
                             className="mt-1 block w-full rounded-md border-[1px] font-md p-2 border-[#7E8488] shadow-sm focus:border-gray-700 focus:ring-gray-700 sm:text-sm outline-none"
                             placeholder="88514875145"
+                            onChange={(e) =>
+                              handleChange({ phone: e.target.value.trim() })
+                            }
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3">
                           <label
-                            htmlFor="first-name"
+                            htmlFor="password"
                             className="block text-sm font-medium text-gray-700"
                           >
                             Password
@@ -87,11 +135,14 @@ const SignUp = () => {
                           <div className="flex gap-5">
                             <input
                               type="password"
-                              name="first-name"
-                              id="first-name"
+                              name="password"
+                              id="password"
                               autoComplete="given-name"
                               className="mt-1 block w-full rounded-md border-[1px] font-md p-2 border-[#7E8488] shadow-sm focus:border-gray-700 focus:ring-gray-700 sm:text-sm outline-none"
                               placeholder="8+ characters"
+                              onChange={(e) =>
+                                handleChange({ password: e.target.value.trim() })
+                              }
                             />
                           </div>
                         </div>
@@ -106,11 +157,14 @@ const SignUp = () => {
                           </label>
                           <input
                             type="password"
-                            name="first-name"
-                            id="first-name"
+                            name="confirmPass"
+                            id="confirmPass"
                             autoComplete="given-name"
                             className="mt-1 block w-full rounded-md border-[1px] font-md p-2 border-[#7E8488] shadow-sm focus:border-gray-700 focus:ring-gray-700 sm:text-sm outline-none"
                             placeholder="Password@123"
+                            onChange={(e) =>
+                              handleChange({ cPass: e.target.value.trim() })
+                            }
                           />
                         </div>
                       </div>

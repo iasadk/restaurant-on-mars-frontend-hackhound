@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import util from "../config/util";
 const Header = () => {
+  const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     setIsLoggedIn(util.isLogged());
-  }, []);
-console.log(JSON.stringify())
+  }, [location.pathname]);
+
+  useEffect(() => {
+    
+  }, [])
+  
   return (
     <header className="text-gray-600 body-font shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -33,7 +38,7 @@ console.log(JSON.stringify())
             className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
           >
             Login
-            
+
           </Link>
         )}
         {!isLoggedIn && (
@@ -45,12 +50,12 @@ console.log(JSON.stringify())
           </Link>
         )}
         {isLoggedIn && (
-          <Link
-            to={"/profile"}
+          <button
+            onClick={()=>util.logout()}
             className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
           >
-            {util.getUserData()}
-          </Link>
+          <i class="ri-logout-circle-line mx-2"></i>{util.getUserData()}
+          </button>
         )}
         {isLoggedIn && (
           <Link

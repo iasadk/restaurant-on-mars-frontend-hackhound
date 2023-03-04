@@ -5,41 +5,41 @@ import config from "./config";
 console.log(config.apiIpWithPort, config.env);
 
 const axiosInstance = axios.create({
-    baseURL: config.apiUrl
+  baseURL: config.apiUrl,
 });
 
 axiosInstance.interceptors.request.use(
-    (config) => {
-        config.headers.authorization = 'Bearer ' + util.getToken();
-        return config;
-    },
-    (error) => {
-        return Promise.reject(error);
-    }
+  (config) => {
+    config.headers.authorization = "Bearer " + util.getToken();
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
 );
 
-axiosInstance.interceptors.response.use(
-    (response) => {
-        if (typeof response.data == typeof String()) {
-            return { data: response.data, headers: response.headers };
-        }
-        return { ...response.data, headers: response.headers };
-    },
-    (error) => {
-        let response = {};
-        if (typeof error.response?.data !== 'undefined') {
-            response = error.response?.data;
-            if (!response?.message) {
-                response.message = error.message
-            }
-            if (response.errors && Array.isArray(response.errors)) {
-                response.message = response.errors[0].msg;
-            }
-        } else {
-            response.message = error.message
-        }
-        return Promise.reject(response);
-    }
-);
+// axiosInstance.interceptors.response.use(
+//   (response) => {
+//     if (typeof response.data == typeof String()) {
+//       return { data: response.data };
+//     }
+//     return { ...response.data };
+//   },
+//   (error) => {
+//     let response = {};
+//     if (typeof error.response?.data !== "undefined") {
+//       response = error.response?.data;
+//       if (!response?.message) {
+//         response.message = error.message;
+//       }
+//       if (response.errors && Array.isArray(response.errors)) {
+//         response.message = response.errors[0].msg;
+//       }
+//     } else {
+//       response.message = error.message;
+//     }
+//     return Promise.reject(response);
+//   }
+// );
 
 export default axiosInstance;

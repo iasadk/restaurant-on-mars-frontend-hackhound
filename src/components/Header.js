@@ -14,33 +14,24 @@ const Header = () => {
           <Link to={"/menu"} className="mr-5 hover:text-gray-900">
             Menu
           </Link>
+          <Link to={"/orders"} className="mr-5 hover:text-gray-900">
+            Orders
+          </Link>
           <Link to={"/reservation"} className="mr-5 hover:text-gray-900">
             Reservation
           </Link>
         </nav>
         <Link
           to={"/login"}
-          className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+          className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#FA3913] rounded text-white mt-4 md:mt-0 mx-5 text-center transition duration-150 ease-out hover:ease-in"
         >
           Login
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
         </Link>
         <Link
           to={"/signup"}
-          className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+          className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#FA3913] rounded text-white mt-4 md:mt-0 text-center transition duration-150 ease-out hover:ease-in"
         >
           Sign Up
-          <i class="ri-user-line"></i>
         </Link>
       </div>
     </header>

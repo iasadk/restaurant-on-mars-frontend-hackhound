@@ -41,7 +41,7 @@ const Login = () => {
             <img
               alt="Background-img"
               className="w-[45%] object-cover object-center"
-              src="https://images.pexels.com/photos/1813465/pexels-photo-1813465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="signup.svg"
               width={200}
               height={200}
             ></img>

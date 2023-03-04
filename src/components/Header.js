@@ -20,6 +20,9 @@ console.log(JSON.stringify())
           <Link to={"/menu"} className="mr-5 hover:text-gray-900">
             Menu
           </Link>
+          <Link to={"/orders"} className="mr-5 hover:text-gray-900">
+            Orders
+          </Link>
           <Link to={"/reservation"} className="mr-5 hover:text-gray-900">
             Reservation
           </Link>
@@ -36,7 +39,7 @@ console.log(JSON.stringify())
         {!isLoggedIn && (
           <Link
             to={"/signup"}
-            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded mx-5 text-white mt-4 md:mt-0"
           >
             Sign Up
           </Link>

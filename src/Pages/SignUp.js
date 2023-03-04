@@ -24,7 +24,7 @@ const SignUp = () => {
         }
         await service.saveUser(data)
         .then(res => {
-            if(res.user_id){
+            if(res.data.user_id){
                 util.success("Register Successfully.")
                 setTimeout(()=>{
                     navigate("/login")

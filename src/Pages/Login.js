@@ -19,9 +19,9 @@ const Login = () => {
     else{
         await service.login(data)
         .then(res => {
-            if(res.message){
-                util.success(res.message);
-                util.setUserData(res);
+            if(res.data.message){
+                util.success(res.data.message);
+                util.setUserData(res.data);
                 setTimeout(()=>{
                     navigate("/")
                 },2000)

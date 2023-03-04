@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import util from "../config/util";
 import menuService from "../service/menu";
 import { Toaster } from "react-hot-toast";
+import service from "../service/cart";
 
 const ItemList = () => {
   const { category } = useParams();
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
   const list = () => {
     menuService
       .getItems(category)
@@ -14,10 +17,28 @@ const ItemList = () => {
       .catch((err) => util.failed(err.message));
   };
 
+  const add = (item) => {
+    if (util.isLogged()) {
+      service
+        .addToCart(
+          {
+            name: item.name,
+            price: item.price,
+            quantity: 1,
+            img: item?.image_url,
+          },
+          { user_id: util.getUserId() }
+        )
+        .then((res) => util.success(res.data.message))
+        .catch((err) => util.failed(err.message));
+    } else {
+      navigate("/login");
+    }
+  };
+
   useEffect(() => {
     list();
   }, [category]);
-  console.log(data);
   return (
     <section class="text-gray-600 body-font">
       <div className="categoryImg">
@@ -50,7 +71,12 @@ const ItemList = () => {
                       </span>
                     </p>
                     <div>
-                        <button className="bg-[#FB7B51] text-white px-2 rounded-sm">Add</button>
+                      <button
+                        className="bg-[#FB7B51] text-white px-2 rounded-sm"
+                        onClick={() => add(item)}
+                      >
+                        Add
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -65,17 +91,3 @@ const ItemList = () => {
 export default ItemList;
 
 
-
-// <div className="flex justify-between items-start">
-//                     <p class="mt-1">
-//                       ₹{item?.price}{" "}
-//                       <span class="mt-1 line-through">
-//                         ₹{item?.price * (10 / 100) + item?.price}
-//                       </span>
-//                     </p>
-//                     <div>
-//                         <button className="bg-[#FB7B51] text-white px-2 rounded-sm">+</button>
-//                         <span className="px-2 py-1">0</span>
-//                         <button className="bg-[#FB7B51] text-white px-2 rounded-sm">-</button>
-//                     </div>
-//                   </div>

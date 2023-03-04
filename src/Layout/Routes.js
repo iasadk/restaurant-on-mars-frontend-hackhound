@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Cart from "../Pages/Cart";
 import Home from "../Pages/Home";
 import ItemList from "../Pages/ItemList";
 import Login from "../Pages/Login";
@@ -16,6 +17,7 @@ const RoutesPro = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/orders" element={<Order />} />
       <Route path="/:category" element={<ItemList />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 };

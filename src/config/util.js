@@ -6,6 +6,7 @@ class util {
     window.localStorage.setItem("authorization", data.accessToken);
     window.localStorage.setItem("userName", data.user?.name);
     window.localStorage.setItem("email", data.user?.email);
+    window.localStorage.setItem("id", data.user?.id);
   };
   getUserData = ($key) => {
     if ($key) {
@@ -20,6 +21,9 @@ class util {
   userType = () => window.localStorage["type"];
   getToken = () => {
     return window.localStorage["authorization"] || "";
+  };
+  getUserId = () => {
+    return window.localStorage["id"] || "";
   };
   isLogged = () => {
     if (

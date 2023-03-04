@@ -26,8 +26,8 @@ const Header = () => {
           <Link to={"/orders"} className="mr-5 hover:text-gray-900">
             Orders
           </Link>
-          <Link to={"/reservation"} className="mr-5 hover:text-gray-900">
-            Reservation
+          <Link to={"/offer"} className="mr-5 hover:text-gray-900">
+            Offers
           </Link>
         </nav>
         {!isLoggedIn && (

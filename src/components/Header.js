@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import util from "../config/util";
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    setIsLoggedIn(util.isLogged());
+  }, []);
+console.log(JSON.stringify())
   return (
     <header className="text-gray-600 body-font shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -18,30 +24,50 @@ const Header = () => {
             Reservation
           </Link>
         </nav>
-        <Link
-          to={"/login"}
-          className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
-        >
-          Login
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
+        {!isLoggedIn && (
+          <Link
+            to={"/login"}
+            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
           >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </Link>
-        <Link
-          to={"/signup"}
-          className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
-        >
-          Sign Up
-          <i class="ri-user-line"></i>
-        </Link>
+            Login
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              className="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </Link>
+        )}
+        {!isLoggedIn && (
+          <Link
+            to={"/signup"}
+            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+          >
+            Sign Up
+            <i class="ri-user-line"></i>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link
+            to={"/profile"}
+            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
+          >
+            {util.getUserData()}
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link
+            to={"/cart"}
+            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+          >
+            <i class="ri-shopping-cart-line"></i>
+          </Link>
+        )}
       </div>
     </header>
   );

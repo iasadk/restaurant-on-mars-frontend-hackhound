@@ -17,8 +17,8 @@ const ItemList = () => {
   useEffect(() => {
     list();
   }, [category]);
-  console.log(data)
-  return (  
+  console.log(data);
+  return (
     <section class="text-gray-600 body-font">
       <div className="categoryImg">
         <Toaster />
@@ -42,7 +42,17 @@ const ItemList = () => {
                   <h2 class="text-gray-900 title-font text-lg font-medium">
                     {item?.name}
                   </h2>
-                  <p class="mt-1">₹{item?.price} <span class="mt-1 line-through">₹{item?.price * (10/100) + item?.price}</span></p>
+                  <div className="flex justify-between items-start">
+                    <p class="mt-1">
+                      ₹{item?.price}{" "}
+                      <span class="mt-1 line-through">
+                        ₹{item?.price * (10 / 100) + item?.price}
+                      </span>
+                    </p>
+                    <div>
+                        <button className="bg-[#FB7B51] text-white px-2 rounded-sm">Add</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -53,3 +63,19 @@ const ItemList = () => {
 };
 
 export default ItemList;
+
+
+
+// <div className="flex justify-between items-start">
+//                     <p class="mt-1">
+//                       ₹{item?.price}{" "}
+//                       <span class="mt-1 line-through">
+//                         ₹{item?.price * (10 / 100) + item?.price}
+//                       </span>
+//                     </p>
+//                     <div>
+//                         <button className="bg-[#FB7B51] text-white px-2 rounded-sm">+</button>
+//                         <span className="px-2 py-1">0</span>
+//                         <button className="bg-[#FB7B51] text-white px-2 rounded-sm">-</button>
+//                     </div>
+//                   </div>

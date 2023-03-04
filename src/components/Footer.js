@@ -4,58 +4,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
   <footer className="text-gray-600 body-font">
-  <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-    <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-      <Link to={"/"} className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-      <img src={"/logo-1.png"} alt="" className="w-12" />
-        <span className="ml-3 text-xl text-center">Cosmic <br/> Cuisine</span>
-      </Link>
-      <p className="mt-2 text-sm text-grey-500">Delight your senses with our culinary creations.</p>
-    </div>
-    <div className="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-      
-    <div className="p-2 lg:w-1/5 md:w-1/2 w-full">
-          <Link to={"/Pizzas"} className="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-[#424242] hover:bg-[#ff5432] transition duration-150 ease-out hover:ease-in">
-            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="pizzaic.png"/>
-            <div className="flex-grow">
-              <p className="text-slate-50">Pizzas</p>
-            </div>
-          </Link>
-        </div>
-        <div className="p-2 lg:w-1/5 md:w-1/2 w-full">
-          <Link to={"/Cuisines"} className="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-[#424242] hover:bg-[#ff5432] transition duration-150 ease-out hover:ease-in">
-            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="bell.png"/>
-            <div className="flex-grow">
-              <p className="text-slate-50">Cuisines</p>
-            </div>
-          </Link>
-        </div>
-        <div className="p-2 lg:w-1/5 md:w-1/2 w-full">
-          <Link to={"/Drinks"} className="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-[#424242] hover:bg-[#ff5432] transition duration-150 ease-out hover:ease-in">
-            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="coffee.png"/>
-            <div className="flex-grow">
-              <p className="text-slate-50">Drinks</p>
-            </div>
-          </Link>
-        </div>
-        <div className="p-2 lg:w-1/5 md:w-1/2 w-full">
-          <Link to={"/Desserts"} className="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-[#424242] hover:bg-[#ff5432] transition duration-150 ease-out hover:ease-in">
-            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="muffin.png"/>
-            <div className="flex-grow">
-              <p className="text-slate-50">Desserts</p>
-            </div>
-          </Link>
-        </div>
-        <div className="p-2 lg:w-1/5 md:w-1/2 w-full">
-          <Link to={"/Specials"} className="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-[#424242] hover:bg-[#ff5432] transition duration-150 ease-out hover:ease-in">
-            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="cupcake.png"/>
-            <div className="flex-grow">
-              <p className="text-slate-50">Special</p>
-            </div>
-          </Link>
-        </div>
-    </div>
-  </div>
+  
   <div className="bg-gray-100">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
       <p className="text-gray-500 text-sm text-center sm:text-left">© 2023-Cosmic Cuisine

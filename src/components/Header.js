@@ -8,9 +8,7 @@ const Header = () => {
     setIsLoggedIn(util.isLogged());
   }, [location.pathname]);
 
-  useEffect(() => {
-    
-  }, [])
+ 
   
   return (
     <header className="text-gray-600 body-font shadow-[0_8px_30px_rgb(0,0,0,0.12)]">

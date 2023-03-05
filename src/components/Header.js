@@ -23,6 +23,9 @@ const Header = () => {
           <Link to={"/menu"} className="mr-5 hover:text-gray-900">
             Menu
           </Link>
+          <Link to={"/qr"} className="mr-5 hover:text-gray-900">
+            QR Code
+          </Link>
           {isLoggedIn && <Link to={"/orders"} className="mr-5 hover:text-gray-900">
           Orders
         </Link>}

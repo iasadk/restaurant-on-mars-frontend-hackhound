@@ -12,6 +12,16 @@ const Order = () => {
       .catch((err) => console.log(err));
   };
 
+  const cancel = (id) =>{
+    service.cancel({order_id:id})
+    .then(res => {
+      if(res.data.message ==="Order Cancelled! "){
+        window.location.reload();
+      }
+    })
+    .catch(err => console.log(err))
+  }
+
   useEffect(() => {
     if(util.getUserId()===""){
         navigate("/")
@@ -23,7 +33,7 @@ const Order = () => {
     <div>
       <h1 className="text-center text-4xl my-5">Your Orders</h1>
       <div className="bg-slate-100 p-4 my-12 w-full md:w-8/12 transition-all delay-100 ease-in-out mx-auto">
-        {orderData.length > 0 &&
+        {orderData.length > 0 ?
           orderData.map((item) => (
             <div>
               <div className=" mt-20 text-lg md:text-2xl font-semibold text-gray-400 flex justify-between">
@@ -34,6 +44,9 @@ const Order = () => {
                   <p>Order date: {new Date().toLocaleString()}</p>
                   <span className="font-semibold text-md"></span>
                 </div>
+                <div>
+                  <span className="px-2 py-1 bg-red-500 text-white hover:bg-red-600 cursor-pointer" onClick={()=>cancel(item?._id)}>Cancel Order</span>
+                </div>
               </div>
 
               {item?.items.map((v) => (
@@ -42,7 +55,7 @@ const Order = () => {
                     <div className="flex gap-2 my-4 ">
                       <img
                         src={
-                          v?.img || "https://img.freepik.com/free-photo/spicy-salmon-salad_74190-647.jpg?size=626&ext=jpg"
+                          v?.image_url || "https://img.freepik.com/free-photo/spicy-salmon-salad_74190-647.jpg?size=626&ext=jpg"
                         }
                         alt="OrderedItem"
                         className="w-1/4 md:w-1/6"
@@ -109,7 +122,7 @@ const Order = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )) : <p className="text-5xl text-center my-8 ">You Dont have any order right now.</p>}
       </div>
     </div>
   );

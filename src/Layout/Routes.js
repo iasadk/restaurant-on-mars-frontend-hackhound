@@ -11,6 +11,7 @@ import SignUp from "../Pages/SignUp";
 import Success from "../Pages/success";
 import Failure from "../Pages/failure";
 import Offer from "../Pages/Offer";
+import Qr from "../Pages/Qr";
 
 const RoutesPro = () => {
   return (
@@ -26,6 +27,7 @@ const RoutesPro = () => {
       <Route path="/success" element={<Success />} />
       <Route path="/failure" element={<Failure />} />
       <Route path="/offer" element={<Offer />} />
+      <Route path="/qr" element={<Qr />} />
     </Routes>
   );
 };

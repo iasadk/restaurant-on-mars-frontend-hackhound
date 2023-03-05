@@ -8,7 +8,6 @@ const LayoutMain = () => {
     <div>
         <Header/>
         <RoutesPro/>
-
     </div>
   )
 }

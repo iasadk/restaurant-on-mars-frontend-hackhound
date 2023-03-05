@@ -32,7 +32,6 @@ const Checkout1 = () => {
         success: navigate("/success?orderId="+od.data.order_id),
         
       });
-      console.log()
     } else {
       util.failed("Please fill the checkout form.");
     }
@@ -40,7 +39,6 @@ const Checkout1 = () => {
   useEffect(() => {
     // console.log(util.getUserId())
     if(util.getUserId()===""){
-      console.log(`first`)
       navigate("/")
     }
     list();
@@ -55,7 +53,7 @@ const Checkout1 = () => {
   return (
     <div className="flex justify-center items-center p-6">
       <Toaster />
-      {cartData.length > 0 ?  (
+      {cartData?.items?.length > 0 ?  (
         <div className="py-16 px-4 md:px-6 2xl:px-0 flex justify-center items-center 2xl:mx-auto 2xl:container">
         <div className="flex flex-col justify-start items-start w-full space-y-9">
           <div className="flex justify-start flex-col items-start space-y-2">

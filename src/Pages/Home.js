@@ -1,16 +1,16 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import menuService from "../service/menu";
 import { Toaster } from "react-hot-toast";
 import service from "../service/cart";
 import util from "../config/util";
+import { TypeAnimation } from "react-type-animation";
 const Home = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const list = () => {
     menuService
-      .getItems("Pizzas")
+      .getItems("Pizza")
       .then((res) => setData(res.data))
       .catch((err) => util.failed(err.message));
   };
@@ -42,14 +42,29 @@ const Home = () => {
       <Toaster />
       <div
         class="container px-5 py-12 border-2"
-        style={{ backgroundImage: `url(./Hero.png)`, objectFit: "fill",width:"100%",backgroundPosition:"center" }}
-
+        style={{
+          backgroundImage: `url(./Hero.png)`,
+          objectFit: "fill",
+          width: "100%",
+          backgroundPosition: "center",
+        }}
       >
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
-          <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 mt-20 ">
-            <h1 class="text-white text-6xl title-font font-medium mb-4">
-              Experience the food in the space!
-            </h1>
+          <div class="lg:w-1/2 w-full h-[290px] lg:pr-10 lg:py-6 mb-6 lg:mb-0 mt-20 ">
+            <TypeAnimation
+              className="text-5xl leading-normal text-white h-[230px]"
+              sequence={[
+                "Experience the food in the space!",
+                1000,
+                "Eating is a necessity, but dining is an art.",
+                1000,
+                "There's no such thing as too much good food.",
+                1000,
+              ]}
+              speed={60}
+              wrapper="h2"
+              repeat={Infinity}
+            />
             <div class="flex">
               <Link
                 to={"/Menu"}
@@ -70,7 +85,7 @@ const Home = () => {
         <div className="flex-grow flex flex-wrap  -mb-10 md:text-left text-center order-first">
           <div className="p-2 lg:w-1/5 md:w-1/2 w-full">
             <Link
-              to={"/Pizzas"}
+              to={"/Pizza"}
               className="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-[#424242] hover:bg-[#ff5432] transition duration-150 ease-out hover:ease-in"
             >
               <img

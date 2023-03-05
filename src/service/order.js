@@ -13,5 +13,8 @@ export default class order {
     static list(data) {
         return axios.post("/order/get/All", data);
     }
+    static cancel(data) {
+        return axios.post("/order/cancel", data);
+    }
     
 }

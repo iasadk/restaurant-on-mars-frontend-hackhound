@@ -33,7 +33,7 @@ const Header = () => {
         {!isLoggedIn && (
           <Link
             to={"/login"}
-            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
+            className="inline-flex items-center bg-[#FF5432] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
           >
             Login
 
@@ -42,7 +42,7 @@ const Header = () => {
         {!isLoggedIn && (
           <Link
             to={"/signup"}
-            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded mx-5 text-white mt-4 md:mt-0"
+            className="inline-flex items-center bg-[#FF5432] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded mx-5 text-white mt-4 md:mt-0"
           >
             Sign Up
           </Link>
@@ -50,15 +50,15 @@ const Header = () => {
         {isLoggedIn && (
           <button
             onClick={()=>util.logout()}
-            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
+            className="inline-flex items-center bg-[#FF5432] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0 mx-5"
           >
           <i class="ri-logout-circle-line mx-2"></i>{util.getUserData()}
           </button>
         )}
         {isLoggedIn && (
           <Link
-            to={"/cart"}
-            className="inline-flex items-center bg-[#ff632f] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
+            to={"/checkout"}
+            className="inline-flex items-center bg-[#FF5432] border-0 py-1 px-3 focus:outline-none hover:bg-[#fb7b51] rounded text-white mt-4 md:mt-0"
           >
             <i class="ri-shopping-cart-line"></i>
           </Link>

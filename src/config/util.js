@@ -1,5 +1,7 @@
 /* eslint-disable */
 import toast from "react-hot-toast";
+
+const promise = Promise.resolve("Success");
 class util {
   setUserData = (data) => {
     window.localStorage.clear();
@@ -25,6 +27,9 @@ class util {
   getUserId = () => {
     return window.localStorage["id"] || "";
   };
+  getUserEmail = () => {
+    return window.localStorage["email"] || "";
+  };
   isLogged = () => {
     if (
       typeof window.localStorage["authorization"] !== "undefined" &&
@@ -43,6 +48,14 @@ class util {
 
   success = (data) => toast.success(data);
   failed = (data) => toast.error(data);
+
+  promise = ()=> (
+    toast.promise(promise, {
+      loading: 'Processing.',
+      success: 'Payment Received.',
+      error: 'Error while processing your order.',
+    })
+  )
     
 }
 

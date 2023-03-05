@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import menuService from "../service/menu";
@@ -41,12 +42,8 @@ const Home = () => {
       <Toaster />
       <div
         class="container px-5 py-12 border-2"
-        style={{
-          backgroundImage: `url("https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/w-qjCHPZbeXCQ-unsplash.jpg")`,
-          objectFit: "fill",
-          width: "100%",
-          backgroundPosition: "center",
-        }}
+        style={{ backgroundImage: `url(./Hero.png)`, objectFit: "fill",width:"100%",backgroundPosition:"center" }}
+
       >
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
           <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 mt-20 ">

@@ -45,7 +45,7 @@ const SignUp = () => {
             <img
               alt="Background-img"
               className="w-[45%] object-cover object-center"
-              src="https://images.pexels.com/photos/1813465/pexels-photo-1813465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="./signup1.svg"
               width={400}
               height={400}
             ></img>
@@ -147,7 +147,7 @@ const SignUp = () => {
                           </div>
                         </div>
 
-                        <div className="col-span-6 sm:col-span-3 border-2 w-full">
+                        <div className="col-span-6 sm:col-span-3  w-full">
                           <label
                             htmlFor="last-name"
                             className="block text-sm font-medium text-gray-700"

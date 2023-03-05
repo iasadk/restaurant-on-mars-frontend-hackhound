@@ -38,6 +38,11 @@ const Checkout1 = () => {
     }
   };
   useEffect(() => {
+    // console.log(util.getUserId())
+    if(util.getUserId()===""){
+      console.log(`first`)
+      navigate("/")
+    }
     list();
   }, []);
   const changeText = (e) => {
@@ -46,10 +51,12 @@ const Checkout1 = () => {
     handleChange({ table_no: e.target.textContent });
   };
 
+
   return (
     <div className="flex justify-center items-center p-6">
       <Toaster />
-      <div className="py-16 px-4 md:px-6 2xl:px-0 flex justify-center items-center 2xl:mx-auto 2xl:container">
+      {cartData.length > 0 ?  (
+        <div className="py-16 px-4 md:px-6 2xl:px-0 flex justify-center items-center 2xl:mx-auto 2xl:container">
         <div className="flex flex-col justify-start items-start w-full space-y-9">
           <div className="flex justify-start flex-col items-start space-y-2">
             <button className="flex flex-row items-center text-gray-600 hover:text-gray-500 space-x-1">
@@ -267,6 +274,11 @@ const Checkout1 = () => {
           </div>
         </div>
       </div>
+      ) : (
+        <div className="text-6xl h-screen">
+          Your Cart is empty !!
+        </div>
+      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const LayoutMain = () => {
     <div>
         <Header/>
         <RoutesPro/>
-        <Footer/>
+
     </div>
   )
 }

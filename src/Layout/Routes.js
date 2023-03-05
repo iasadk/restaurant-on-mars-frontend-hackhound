@@ -10,6 +10,7 @@ import Order from "../Pages/Order";
 import SignUp from "../Pages/SignUp";
 import Success from "../Pages/success";
 import Failure from "../Pages/failure";
+import Offer from "../Pages/Offer";
 
 const RoutesPro = () => {
   return (
@@ -24,6 +25,7 @@ const RoutesPro = () => {
       <Route path="/checkout" element={<Checkout1 />} />
       <Route path="/success" element={<Success />} />
       <Route path="/failure" element={<Failure />} />
+      <Route path="/offer" element={<Offer />} />
     </Routes>
   );
 };

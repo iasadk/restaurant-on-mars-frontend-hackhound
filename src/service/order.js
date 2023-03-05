@@ -10,8 +10,8 @@ export default class order {
     static save(data) {
         return axios.post("/order/book", data,);
     }
-    static list(data, query) {
-        return axios.post("/user/signin", data, { params: query });
+    static list(data) {
+        return axios.post("/order/get/All", data);
     }
     
 }

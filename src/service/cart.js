@@ -11,4 +11,7 @@ export default class service {
   static list(data, query) {
     return axios.post("/cart/get/" + query.user_id);
   }
+  static clearCart(data, query) {
+    return axios.post("/cart/clear/" + query.user_id);
+  }
 }

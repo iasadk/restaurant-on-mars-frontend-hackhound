@@ -23,9 +23,9 @@ const Header = () => {
           <Link to={"/menu"} className="mr-5 hover:text-gray-900">
             Menu
           </Link>
-          <Link to={"/orders"} className="mr-5 hover:text-gray-900">
-            Orders
-          </Link>
+          {isLoggedIn && <Link to={"/orders"} className="mr-5 hover:text-gray-900">
+          Orders
+        </Link>}
           <Link to={"/offer"} className="mr-5 hover:text-gray-900">
             Offers
           </Link>
